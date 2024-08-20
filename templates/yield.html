@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Final Year Project</title>
+	<title>Yield Form</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
+	    <!-- <link href="{{ url_for('static', filename='css/style.css') }}" rel='stylesheet' type='text/css' /> -->
+        <link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-light text-dark">
+
+	 <!-- Navigation -->
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="background-color: #1C00ff00;">
+		<div class="container">
+			<a class="navbar-brand" href="{{ url_for('home') }}">
+				<img src="{{ url_for('static', filename='images/logo_new.jpg') }}" style="width: 90px; height: 55px" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="{{ url_for('home') }}">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('yield_predict') }}">Yield</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('index') }}">Price</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Crop Yield Form -->
+	<div class="container">
+		<div class="row">
+		<div class="col">
+		<form class="row gx-3 gy-2 align-items-center" action="{{ url_for('predict')}}" method="post">
+		  	<div class="mb-3 col-md-6">
+		    	<label for="area" class="form-label">Area (in hectares)</label>
+		    	<input type="number" class="form-control" id="area" name="Area" required="required">
+		  	</div>
+		  	<div class="mb-3 col-6 ">
+		   		<label for="rainfall" class="form-label">Annual Rainfall</label>
+		   		<input type="number" class="form-control" id="rainfall" name="Annual" required="required">
+	  		</div>
+	  		<div class="mb-3 col-6">
+		   		<label for="min_temperature" class="form-label">Minimum Temperature</label>
+		   		<input type="number" class="form-control" id="min_temperature" name="Min_temp" required="required">
+	  		</div>
+	  		<div class="mb-3 col-6">
+		   		<label for="max_temperature" class="form-label">Maximum Temperature</label>
+		   		<input type="number" class="form-control" id="max_temperature" name="Max_temp" required="required">
+	  		</div>
+
+	  		<div class="mb-3 col-12"> 
+	  			<label for="District" class="form-label">District</label>
+	  			<select class="form-select" id="District" aria-label="Default select example" name="District" required="required">
+				  	<option selected>Open this select menu</option>
+				  	<option value="Dist Name_BAGALKOT">ADILABAD</option>
+				 	<option value="Dist Name_BELGAUM">KARIMNAGAR</option>
+				 	<option value="Dist Name_BELLARY">KHAMMAM</option>
+				 	<option value="Dist Name_BENGALURU URBAN">MAHBUBNAGAR</option>
+ 					<option value="Dist Name_BIDAR">MEDAK</option>
+ 					<option value="Dist Name_CHAMARAJANAGAR">NALGONDA</option>
+ 					<option value="Dist Name_CHIKBALLAPUR">NIZAMABAD</option>
+ 					<option value="Dist Name_CHIKMAGALUR">RANGAREDDI</option>
+ 					<option value="Dist Name_CHITRADURGA">WARANGAL</option>
+				</select>
+			</div>
+			<div class="mb-3">
+	  			<label for="Season" class="form-label">Season</label>
+				<select class="form-select" id="Season" aria-label="Default select example" name="Season" required="required">
+					<option selected>Open this select menu</option>
+					<option value="Season_Kharif     ">Kharif</option>
+					<option value="Season_Rabi       ">Rabi</option>
+					<option value="Season_Summer     ">Summer</option>
+					<option value="Season_Whole Year ">Whole Year</option>
+				</select>
+			</div>
+			<div class="mb-3">
+	  			<label for="Crop" class="form-label">Crop</label>
+				<select class="form-select" id="Crop" aria-label="Default select example" name="Crop" required="required">
+					<option selected>Open this select menu</option>
+					<option value="Crop_Arcanut (Processed)">Arcanut (Processed)</option>
+					<option value="Crop_Arecanut">Arecanut</option>
+					<option value="Crop_Arhar/Tur">Arhar/Tur</option>
+					<option value="Crop_Atcanut (Raw)">Atcanut (Raw)</option>
+					<option value="Crop_Bajra">Bajra</option>
+					<option value="Crop_Banana">Banana</option>
+					<option value="Crop_Beans & Mutter(Vegetable)">Beans & Mutter(Vegetable)</option>
+					<option value="Crop_Black pepper">Black pepper</option>
+					<option value="Crop_Brinjal">Brinjal</option>
+					<option value="Crop_Cardamom">Cardamom</option>
+					<option value="Crop_Cashewnut">Cashewnut</option>
+					<option value="Crop_Cashewnut Processed">Cashewnut Processed</option>
+					<option value="Crop_Cashewnut Raw">Cashewnut Raw</option>
+					<option value="Crop_Castor seed">Castor seed</option>
+					<option value="Crop_Citrus Fruit">Citrus Fruit</option>
+					<option value="Crop_Coconut">Coconut </option>
+					<option value="Crop_Coriander">Coriander</option>
+					<option value="Crop_Cotton(lint)">Cotton(lint)</option>
+					<option value="Crop_Cowpea(Lobia)">Cowpea(Lobia)</option>
+					<option value="Crop_Dry chillies">Dry chillies</option>
+					<option value="Crop_Dry ginger">Dry ginger</option>
+					<option value="Crop_Garlic">Garlic</option>
+					<option value="Crop_Gram">Gram</option>
+					<option value="Crop_GrapesGroundnut">GrapesGroundnut</option>
+					<option value="Crop_Horse-gram">Horse-gram</option>
+					<option value="Crop_Jowar">Jowar</option>
+					<option value="Crop_Linseed">Linseed</option>
+					<option value="Crop_Maize">Maize</option>
+					<option value="Crop_Mango">Mango</option>
+					<option value="Crop_Mesta">Mesta</option>
+					<option value="Crop_Moong(Green Gram)">Moong(Green Gram)</option>
+					<option value="Crop_Niger seed">Niger seed</option>
+					<option value="Crop_Onion">Onion</option>
+					<option value="Crop_Other  Rabi pulses">Other  Rabi pulses</option>
+					<option value="Crop_Other Fresh Fruits">Other Fresh Fruits</option>
+					<option value="Crop_Other Fresh Fruits">Other Kharif pulses</option>
+					<option value="Crop_Paddy">Paddy</option>
+					<option value="Crop_Papaya">Papaya</option>
+					<option value="Crop_Peas & beans (Pulses)">Peas & beans (Pulses)</option>
+					<option value="Crop_Pome Fruit">Pome Fruit</option>
+					<option value="Crop_Potato">Potato</option>
+					<option value="Crop_Ragi">Ragi</option>
+					<option value="Crop_Rapeseed &Mustard">Rapeseed &Mustard</option>
+					<option value="Crop_Rice">Rice</option>
+					<option value="Crop_Safflower">Safflower</option>
+					<option value="Crop_Sannhamp">Sannhamp</option>
+					<option value="Crop_Sesamum">Sesamum</option>
+					<option value="Crop_Small millets">Small millets</option>
+					<option value="Crop_Soyabean">Soyabean</option>
+					<option value="Crop_Sugarcane">Sugarcane</option>
+					<option value="Crop_Sunflower">Sunflower</option>
+					<option value="Crop_Sweet potato">Sweet potato</option>
+					<option value="Crop_Tapioca">Tapioca</option>
+					<option value="Crop_Tobacco">Tobacco</option>
+					<option value="Crop_Tomato">Tomato</option>
+					<option value="Crop_Turmeric">Turmeric</option>
+					<option value="Crop_Urad">Urad</option>
+					<option value="Crop_Wheat">Wheat</option>
+				</select>
+			</div>
+	  		<button id="sub" type="submit" class="btn btn-primary">Submit</button>
+		</form>
+		</div>
+		<div class="col">
+			<div class="card" style="width: 20rem;">
+				<img src="https://www.logodesign.net/images/create-agriculture-logo-designs.png" class="card-img-top" alt="...">
+				<div class="card-body">
+				  <h5 class="card-title">CROP YIELD PREDICTION</h5>
+				  <p class="card-text">The Production of the selected crop is the coming harvesting month will be, </p>
+				  <h4>{{ prediction_text }} <br>Quintal/hectare</h4>
+				  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+				</div>
+			  </div>
+		</div>
+		
+	</div>
+	
+</body>
+	
+</html>

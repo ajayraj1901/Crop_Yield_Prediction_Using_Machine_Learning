@@ -1,0 +1,11 @@
+keras
+tensorflow
+pandas
+Flask
+torch
+torchvision
+requests
+Pillow
+gunicorn
+flask-cors
+scikit-learn==0.23.2

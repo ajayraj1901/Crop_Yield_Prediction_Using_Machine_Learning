@@ -1,0 +1,107 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<!-- banner -->
+<section class="banner_w3lspvt" id="home">
+	<div class="csslider infinity" id="slider1">
+	
+				<div class="banner-top">
+					<div class="overlay">
+						<div class="container">
+							<div class="w3layouts-banner-info text-center">
+								<h3 class="text-wh">Farm Smart</h3>
+								<h4 class="text-wh mx-auto my-4"><b>Get informed decisions about your farming strategy.</b></h4>
+								<br>
+								<h4 class="text-wh mx-auto my-4"><strong> Here are some questions we'll answer</strong></h4>
+								<p class="text-li mx-auto mt-2">
+									1. What will be your annual Crop Production? <br>
+									2. What fertilizer to use? <br>
+									3. What is the market price of your crop?<br>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+	</div>
+</section>
+<!-- //banner -->
+
+<!-- core values -->
+<section class="core-value py-5">
+	<div class="container py-md-4">
+		<h3 class="heading mb-sm-5 mb-4 text-center"> About the project</h3>
+		<div class="row core-grids">
+			<div class="col-lg-6 core-left">
+				<img src="{{ url_for('static', filename='images/core.jpg') }}" class="img-fluid" alt="" />
+			</div>
+			<div class="col-lg-6 core-right">
+				<h3 class="mt-4">Improving Agriculture Decisions, soil health, Cultivating Crops To Make Farmers Increase
+					Profit.</h3>
+				<p class="mt-3">We use state-of-the-art machine learning and deep learning technologies to help you
+					guide through
+					the entire farming process. Make informed decisions to understand the demographics of your area,
+					understand the
+					factors that affect your crop and keep them healthy for a super awesome successful yield.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //core values -->
+
+<section class="blog py-5">
+	<div class="container py-md-5">
+		<h3 class="heading mb-sm-5 mb-4 text-center"> Modules </h3>
+		<div class="row blog-grids">
+			<!-- <div class="row"> -->
+				<div class="col-sm-4">
+	  				<div class="card h-100">
+						<img src="https://cdn.croptrust.org/wp/wp-content/uploads/2014/12/about-us.jpg" class="card-img-top img-thumbnail" alt="...">
+						<div class="card-body">
+		  					<h5 class="card-title">Predict Yield</h5>
+		  					<p class="card-text">Tells you an approximate annual Production of any crop grown in Telangana, specific to all the districts (Except Hyderabad).</p>
+		  					<br>
+							<a href="{{ url_for('yield_predict') }}" class="btn btn-primary">Let's Go</a>
+						</div>
+	 				</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="card h-100">
+						<img src="https://st.depositphotos.com/2977159/4704/i/600/depositphotos_47046845-stock-photo-growing-tree.jpg" class="card-img-top img-thumbnail" alt="...">
+					  	<div class="card-body">
+							<h5 class="card-title">Fertilizer Recommendation</h5>
+							<p class="card-text">Test your soil health here and get detailed fertilizer Recommendation to enhance your soil condition.</p>
+							<br>
+							<a href="{{ url_for('fertilizer_recommendation') }}" class="btn btn-primary">Let's Go</a>
+					  	</div>
+				   	</div>
+			  	</div>
+			  	<div class="col-sm-4">
+					<div class="card h-100">
+						<img src="https://www.world-grain.com/ext/resources/Article-Images/2018/09-September/Pulses_AdobeStock_117825265_E.jpg?1536765260" class="card-img-top img-thumbnail" alt="...">
+				  		<div class="card-body">
+							<h5 class="card-title">WPI Trend Analysis</h5>
+							<p class="card-text">Visualize and analyze commodity specific, whole index price trends of the next 12 months in the country. </p>
+							<br>
+							<a href="{{ url_for('index') }}" target='_blank' class="btn btn-primary">Let's Go</a>
+				 		 </div>
+			   		</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<!-- Creating custom grid and hover effect
+<section>
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="hovereffect">
+        <img class="img-responsive" src="images/s2.jpg" alt="">
+        <div class="overlay">
+           <h2>Hover effect 1</h2>
+           <a class="info" href="#">link here</a>
+        </div>
+    </div>
+</div> -->
+
+</html>
+
+{% endblock %}

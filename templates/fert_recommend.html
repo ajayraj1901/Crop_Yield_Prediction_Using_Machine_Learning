@@ -1,0 +1,142 @@
+{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Fertilizer Recommendation Form</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel='stylesheet' type='text/css' />
+	    <!-- <link href="{{ url_for('static', filename='css/style.css') }}" rel='stylesheet' type='text/css' /> -->
+        <link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	</head>
+
+    <body class="bg-light text-dark">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="background-color: #1C00ff00;">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='images/logo.jpg') }}" style="width: 90px; height: 55px" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('home') }}">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('yield_predict') }}">Yield</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('fertilizer') }}">Fertilizer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('index') }}">Price</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Form Heading -->
+        <br/><br/>
+        <h2 style="text-align: center; margin: 0px; color: black"><b>Get informed advice on fertilizer based on soil</b></h2>
+        <br/>
+
+        <!-- Form -->
+        <div class="container">
+            <form method="POST" action="{{ url_for('fert_recommend') }}">
+                <div class="row mb-3">
+                    <label for="Nitrogen" class="col-sm-2 col-form-label"><b>NITROGEN</b></label>
+                    <div class="col-sm-10">
+                        <input 
+                            type="number"
+                            class="form-control"
+                            id="Nitrogen"
+                            name="nitrogen"
+                            placeholder="Enter the value (example:50)"
+                            required
+                        />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="Phosphorous" class="col-sm-2 col-form-label"><b>PHOSPHOROUS</b></label>
+                    <div class="col-sm-10">
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="Phosphorous"
+                            name="phosphorous"
+                            placeholder="Enter the value (example:50)"
+                            required 
+                        />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="Pottasium" class="col-sm-2 col-form-label"><b>POTTASIUM</b></label>
+                    <div class="col-sm-10">
+                        <input 
+                            type="number"
+                            class="form-control"
+                            id="Pottasium"
+                            name="pottasium"
+                            placeholder="Enter the value (example:50)"
+                            required
+                        />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="crop" class="col-sm-2 col-form-label"><b>CROP</b></label>
+                    <div class="col-sm-10">
+                        <select
+                            name="cropname"
+                            class="form-control"
+                            id="crop"
+                            placeholder="Which crop do you want to grow?"
+                            required
+                            aria-label="Default select example"
+                        >
+                            <option selected>Select crop</option>
+                            <option>rice</option>
+                            <option>maize</option>
+                            <option>chickpea</option>
+                            <option>kidneybeans</option>
+                            <option>pigeonpeas</option>
+                            <option>mothbeans</option>
+                            <option>mungbean</option>
+                            <option>blackgram</option>
+                            <option>lentil</option>
+                            <option>pomegranate</option>
+                            <option>banana</option>
+                            <option>mango</option>
+                            <option>grapes</option>
+                            <option>watermelon</option>
+                            <option>muskmelon</option>
+                            <option>apple</option>
+                            <option>orange</option>
+                            <option>papaya</option>
+                            <option>coconut</option>
+                            <option>cotton</option>
+                            <option>jute</option>
+                            <option>coffee</option>
+                        </select>    
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-outline-primary">Recommend</button>
+                </div>
+            </form>
+        </div>    
+</html>

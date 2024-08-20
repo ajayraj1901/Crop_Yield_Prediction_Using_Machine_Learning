@@ -1,0 +1,8 @@
+Pre-requisite: Download the dependencies before running the project
+
+1. Launch the Anaconda Navigator
+2. To view the .ipynb files launch the Jupyter Notebook and navigate to the directory (Jupyter Notebooks in this project) and choose the files.
+3. To launch the web-app, open the conda prompt from Anaconda Navigator
+   3.1  cd <path of the directory where app.py resides)
+   3.2  run the command: python app.py
+   3.3  open the project in the provided url 
